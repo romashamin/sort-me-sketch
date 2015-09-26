@@ -1,0 +1,168 @@
+/**
+ * Sort Me 1.0
+ *
+ * Copyright © 2015 Roman Shamin https://github.com/romashamin
+ * and licenced under the MIT licence. All rights not explicitly
+ * granted in the MIT license are reserved. See the included
+ * LICENSE file for more details.
+ *
+ * https://github.com/romashamin/
+ * https://twitter.com/romanshamin
+ */
+
+
+
+/**
+ * @param {NSMutableArray} array
+ * @param {Number} atIndex
+ * @param {Number} toIndex
+ * @returns {NSMutableArray}
+ */
+
+function moveObject(array, atIndex, toIndex) {
+  if (atIndex != toIndex) {
+    var object = [[[array objectAtIndex:atIndex] retain] autorelease]
+
+    [array removeObjectAtIndex:atIndex]
+    [array insertObject:object atIndex:toIndex]
+  }
+
+  return array
+}
+
+
+
+/**
+ * Sets `isSelected` to `true` for all given layers
+ * @param {NSArray.<MSShapeGroup>} layers
+ */
+
+function restoreSelection(layers) {
+  var loop = [layers objectEnumerator]
+
+  while (layer = [loop nextObject]) {
+    [layer setIsSelected:true]
+  }
+}
+
+
+
+/**
+ * Makes `NSApp sendAction` for `layer` `times` times
+ * @param {NSDictionary} context
+ * @param {String} action
+ * @param {MSShapeGroup} layer
+ * @param {Number} times
+ */
+
+function sendActionTimes(context, action, object, times) {
+  var doc = context.document
+
+  [[doc currentPage] deselectAllLayers]
+  [object setIsSelected:true]
+
+  for (var i = 0; i < times; i++) {
+    [NSApp sendAction:action to:nil from:doc]
+  }
+
+  restoreSelection(context.selection)
+}
+
+
+
+/**
+ * Returns layers sorted by first number in name
+ * @param {NSArray.<MSShapeGroup>} layers
+ * @returns {NSArray.<MSShapeGroup>}
+ */
+
+function sortLayers(layers) {
+  var sortDescriptor = [[NSSortDescriptor alloc]
+                        initWithKey:'name'
+                        ascending:true]
+
+  return [layers sortedArrayUsingDescriptors:[sortDescriptor]]
+}
+
+
+
+/**
+ * @typedef {Object} StepsStruct
+ * @property {MSShapeGroup} layer
+ * @property {Number} steps
+ */
+
+/**
+ * Returns the quantity of steps that needed to reorder `layers`
+ * in according to order of `sortedLayers`
+ * @param {NSArray.<MSShapeGroup>} selection
+ * @param {NSArray.<MSShapeGroup>} sortedLayers
+ * @returns {Array.<StepsStruct>}
+ */
+
+function getSteps(selection, sortedLayers) {
+  var steps = []
+  var selectedLayers = [selection mutableCopy]
+
+  for (var i = 0; i < [sortedLayers count]; i++) {
+    var layer = [sortedLayers objectAtIndex:i]
+    var index = [selectedLayers indexOfObject:layer]
+
+    steps.push({ layer: layer, steps: index - i })
+
+    selectedLayers = moveObject(selectedLayers, index, i)
+  }
+
+  return steps
+}
+
+
+
+/**
+ * @param {NSArray.<MSShapeGroup>} selection
+ * @returns {String}
+ */
+
+function getObjectName(selection) {
+  var object = [selection firstObject]
+
+  switch ([object class]) {
+    case [MSShapeGroup class]:
+      return 'layers'
+    case [MSArtboardGroup class]:
+      return 'artboards'
+    default:
+      return 'objects'
+  }
+}
+
+
+
+/**
+ * Entry point
+ * @param {NSDictionary} context
+ */
+
+function onRun(context) {
+  var doc        = context.document
+  var selection  = [doc findSelectedLayers]
+  var pluginName = 'Sort Me'
+
+  if ([selection count] > 1) {
+    var moveBack = sendActionTimes.bind(null, context, 'moveBackward:')
+
+    getSteps(selection, sortLayers(selection))
+      .forEach(function(steps) {
+        moveBack(steps.layer, steps.steps)
+      })
+
+    [doc showMessage: pluginName + ': ' + [selection count] + ' ' +
+                      getObjectName(selection) + ' have been sorted']
+  } else {
+    [doc showMessage: pluginName + ': nothing to sort']
+  }
+}
+
+
+
+//onRun(context)

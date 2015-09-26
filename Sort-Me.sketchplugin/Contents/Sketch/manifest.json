@@ -1,0 +1,24 @@
+{
+  "name": "Sort Me",
+  "description": "Sort artboards and layers by name",
+  "author": "Roman Shamin",
+  "homepage": "https://github.com/romashamin/sort-me-sketch",
+  "version": 1.0,
+  "identifier": "com.github.romashamin.sort-me-sketch",
+  "updateURL": "https://github.com/romashamin/sort-me-sketch",
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Sort Selected Objects",
+      "identifier": "sort-me",
+      "shortcut": "ctrl shift o",
+      "script": "Sort-Me.coscript"
+    }
+  ],
+  "menu": {
+    "items": [
+      "sort-me"
+    ]
+  }
+}
