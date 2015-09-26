@@ -1,0 +1,8 @@
+.DS_Store
+.config
+*.log
+*.swp
+hidden
+node_modules
+npm-debug.log
+tmp
