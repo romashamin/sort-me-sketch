@@ -6,8 +6,10 @@ Sort Me is a Sketch plugin. Use ⌃⇧O to sort selected artboards or layers by 
 
 ### Install
 
-1. Download and unzip: .
+1. Download and unzip: [master.zip].
 2. Open Sketch.app, go to `Plugins → Reveal Plugins Folder...` and add `Sort-Me.sketchplugin` there.
+
+[master.zip]: https://github.com/romashamin/sort-me-sketch/archive/master.zip
 
 ### System Requirements
 
