@@ -77,9 +77,9 @@ function sendActionTimes(context, action, object, times) {
  */
 
 function sortLayers(layers) {
-  var sortDescriptor = [[NSSortDescriptor alloc]
-                        initWithKey:'name'
-                        ascending:true]
+  var sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:'name'
+                                         ascending:true
+                                         selector:'localizedStandardCompare:']
 
   return [layers sortedArrayUsingDescriptors:[sortDescriptor]]
 }
