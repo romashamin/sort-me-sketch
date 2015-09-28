@@ -2,7 +2,17 @@
 
 <img width="256" height="256" src="images/sort-me-icon@2x.png" title="Sort Me Icon">
 
-Sort Me is a Sketch plugin. Use ⌃⇧O to sort selected artboards or layers by name.
+Sort Me is a Sketch plugin. Select artboards or layers and use:
+
+1. **⌃⇧O** to sort them this way:
+	* Layer 3
+	* Layer 2
+	* Layer 1
+
+2. **⌃⇧P** to sort opposite:
+	* Layer 1
+	* Layer 2
+	* Layer 3
 
 <img width="208" height="132" src="images/sort-me-demo@2x.gif" title="Demonstration">
 
