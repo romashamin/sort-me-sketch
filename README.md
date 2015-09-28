@@ -14,6 +14,8 @@ Sort Me is a Sketch plugin. Select artboards or layers and use:
 	* Layer 2
 	* Layer 3
 
+Demonstration:
+
 <img width="208" height="132" src="images/sort-me-demo@2x.gif" title="Demonstration">
 
 ### Install
