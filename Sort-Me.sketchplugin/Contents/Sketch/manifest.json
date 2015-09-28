@@ -10,15 +10,24 @@
   "bundleVersion": 1,
   "commands": [
     {
-      "name": "Sort Selected Objects",
-      "identifier": "sort-me",
+      "name": "Sort A1 → Z9",
+      "identifier": "sort-ascending",
       "shortcut": "ctrl shift o",
-      "script": "Sort-Me.coscript"
+      "script": "Sort-Me.coscript",
+      "handler": "runAscending"
+    },
+    {
+      "name": "Sort Z9 → A1",
+      "identifier": "sort-descending",
+      "shortcut": "ctrl shift p",
+      "script": "Sort-Me.coscript",
+      "handler": "runDescending"
     }
   ],
   "menu": {
     "items": [
-      "sort-me"
+      "sort-ascending",
+      "sort-descending"
     ]
   }
 }

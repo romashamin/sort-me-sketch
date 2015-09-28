@@ -76,9 +76,9 @@ function sendActionTimes(context, action, object, times) {
  * @returns {NSArray.<MSShapeGroup>}
  */
 
-function sortLayers(layers) {
+function sortLayers(layers, isAscending) {
   var sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:'name'
-                                         ascending:true
+                                         ascending:isAscending
                                          selector:'localizedStandardCompare:']
 
   return [layers sortedArrayUsingDescriptors:[sortDescriptor]]
@@ -141,9 +141,10 @@ function getObjectName(selection) {
 /**
  * Entry point
  * @param {NSDictionary} context
+ * @param {Boolean} isAscending
  */
 
-function onRun(context) {
+function onRun(context, isAscending) {
   var doc        = context.document
   var selection  = [doc findSelectedLayers]
   var pluginName = 'Sort Me'
@@ -151,7 +152,7 @@ function onRun(context) {
   if ([selection count] > 1) {
     var moveBack = sendActionTimes.bind(null, context, 'moveBackward:')
 
-    getSteps(selection, sortLayers(selection))
+    getSteps(selection, sortLayers(selection, isAscending))
       .forEach(function(steps) {
         moveBack(steps.layer, steps.steps)
       })
@@ -165,4 +166,22 @@ function onRun(context) {
 
 
 
-//onRun(context)
+/**
+ * Entry point for descending order (⌃⇧P)
+ * @param {NSDictionary} context
+ */
+
+function runDescending(context) {
+  onRun(context, false)
+}
+
+
+
+/**
+ * Entry point for ascending order (⌃⇧O)
+ * @param {NSDictionary} context
+ */
+
+function runAscending(context) {
+  onRun(context, true)
+}
