@@ -21,7 +21,7 @@ Demonstration:
 ### Install
 
 1. Download and unzip: [sort-me-sketch-master.zip].
-2. Open Sketch.app, go to `Plugins → Reveal Plugins Folder...` and add `Sort-Me.sketchplugin` there.
+2. Open Sketch.app, go to `Plugins → Manage Plugins... → (Gear icon in the bottom left corner) → Show Plugins Folder` and add `Sort-Me.sketchplugin` there.
 
 [sort-me-sketch-master.zip]: https://github.com/romashamin/sort-me-sketch/archive/master.zip
 
