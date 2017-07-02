@@ -1,5 +1,5 @@
 /**
- * Sort Me 1.1
+ * Sort Me 1.2
  *
  * Copyright © 2015 Roman Shamin https://github.com/romashamin
  * and licenced under the MIT licence. All rights not explicitly
@@ -33,21 +33,6 @@ function moveObject(array, atIndex, toIndex) {
 
 
 /**
- * Sets `isSelected` to `true` for all given layers
- * @param {NSArray.<MSShapeGroup>} layers
- */
-
-function restoreSelection(layers) {
-  var loop = [layers objectEnumerator]
-
-  while (layer = [loop nextObject]) {
-    [layer setIsSelected:true]
-  }
-}
-
-
-
-/**
  * Makes `NSApp sendAction` for `layer` `times` times
  * @param {NSDictionary} context
  * @param {String} action
@@ -56,16 +41,18 @@ function restoreSelection(layers) {
  */
 
 function sendActionTimes(context, action, object, times) {
-  var doc = context.document
+  var doc  = context.document
+  var page = [doc currentPage]
+  var selection = context.selection
+  var selectedLayers = [selection mutableCopy]
 
-  [[doc currentPage] deselectAllLayers]
-  [object setIsSelected:true]
+  [page changeSelectionBySelectingLayers: nil]
 
   for (var i = 0; i < times; i++) {
-    [NSApp sendAction:action to:nil from:doc]
+    [MSLayerMovement moveBackward: [object]]
   }
 
-  restoreSelection(context.selection)
+  [page changeSelectionBySelectingLayers: selectedLayers]
 }
 
 
@@ -146,7 +133,7 @@ function getObjectName(selection) {
 
 function onRun(context, isAscending) {
   var doc        = context.document
-  var selection  = [doc findSelectedLayers]
+  var selection  = context.selection
   var pluginName = 'Sort Me'
 
   if ([selection count] > 1) {
@@ -185,3 +172,5 @@ function runDescending(context) {
 function runAscending(context) {
   onRun(context, true)
 }
+
+//onRun(context, true)

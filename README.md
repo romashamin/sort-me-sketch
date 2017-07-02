@@ -27,7 +27,7 @@ Demonstration:
 
 ### System Requirements
 
-Sort Me has been tested on Sketch 3.3.3 on OS X Yosemite. If you have any problems, drop me a line: [@romanshamin].
+Sort Me has been tested on Sketch 45 on OS X Yosemite. If you have any problems, drop me a line: [@romanshamin].
 
 [@romanshamin]: https://twitter.com/romanshamin
 

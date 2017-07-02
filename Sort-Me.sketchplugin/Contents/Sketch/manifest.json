@@ -3,7 +3,7 @@
   "description": "Sort artboards and layers by name",
   "author": "Roman Shamin",
   "homepage": "https://github.com/romashamin/sort-me-sketch",
-  "version": 1.0,
+  "version": 1.2,
   "identifier": "com.github.romashamin.sort-me-sketch",
   "updateURL": "https://github.com/romashamin/sort-me-sketch",
   "compatibleVersion": 3,
