@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Sketch Updating Plugins Test</title>
+    <link>http://sparkle-project.org/files/sparkletestcast.xml</link>
+    <description>Trying to setup Sketch updating system</description>
+    <language>en</language>
+      <item>
+        <title>Version 1.3</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>Support for Sketch 45 plugin update system</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://github.com/romashamin/sort-me-sketch/archive/master.zip" sparkle:version="1.3" />
+      </item>
+  </channel>
+</rss>

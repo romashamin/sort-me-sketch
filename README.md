@@ -2,6 +2,9 @@
 
 <img width="256" height="256" src="images/sort-me-icon@2x.png" title="Sort Me Icon">
 
+<img width="192" height="30" src="https://osom.coffee/files/002/419/551/2419551/original/plugin-updates_2x.png" title="Plugin Update Badge">
+**Sort Me 1.3 supports Sketch 45 plugin update system**
+
 Sort Me is a Sketch plugin. Select artboards or layers and use:
 
 1. **⌃⇧O** to sort them this way:
@@ -27,7 +30,7 @@ Demonstration:
 
 ### System Requirements
 
-Sort Me has been tested on Sketch 45 on OS X Yosemite. If you have any problems, drop me a line: [@romanshamin].
+Sort Me has been tested on Sketch 45.1 on macOS Sierra. If you have any problems, drop me a line: [@romanshamin].
 
 [@romanshamin]: https://twitter.com/romanshamin
 
