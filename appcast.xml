@@ -6,15 +6,15 @@
     <description>Trying to setup Sketch updating system</description>
     <language>en</language>
       <item>
-        <title>Version 1.3</title>
+        <title>Version 1.4</title>
         <description>
           <![CDATA[
             <ul>
-              <li>Support for Sketch 45 plugin update system</li>
+              <li>Test update</li>
             </ul>
           ]]>
         </description>
-        <enclosure url="https://github.com/romashamin/sort-me-sketch/archive/master.zip" sparkle:version="1.3" />
+        <enclosure url="https://github.com/romashamin/sort-me-sketch/archive/master.zip" sparkle:version="1.4" />
       </item>
   </channel>
 </rss>
