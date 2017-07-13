@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Sketch Updating Plugins Test</title>
+    <title>Sort Me</title>
     <link>http://sparkle-project.org/files/sparkletestcast.xml</link>
-    <description>Trying to setup Sketch updating system</description>
+    <description>Sort artboards and layers by name</description>
     <language>en</language>
       <item>
         <title>Version 1.4</title>
         <description>
           <![CDATA[
             <ul>
-              <li>Test update</li>
+              <li>Version 1.4</li>
             </ul>
           ]]>
         </description>
