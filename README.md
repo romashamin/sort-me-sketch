@@ -2,10 +2,6 @@
 
 <img width="256" height="256" src="images/sort-me-icon@2x.png" title="Sort Me Icon">
 
-<img width="192" height="30" src="https://osom.coffee/files/002/419/551/2419551/original/plugin-updates_2x.png" title="Plugin Update Badge">
-
-**Sort Me 1.4 supports Sketch plugin update system**
-
 Sort Me is a Sketch plugin. Select artboards or layers and use:
 
 1. **⌃⇧O** to sort them this way:
